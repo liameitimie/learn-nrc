@@ -1,0 +1,22 @@
+#define _LC_IndirectKernelDispatch uint
+#define _LC_IndirectDispatchBuffer RWStructuredBuffer<uint>
+void _SetDispInd(RWStructuredBuffer<uint> buffer,uint idx,uint3 blk,uint3 size,uint kid){
+uint3 dispSize=(size+blk-1)/blk;
+idx=idx*7+1;
+buffer[idx]=size.x;
+buffer[idx+1]=size.y;
+buffer[idx+2]=size.z;
+buffer[idx+3]=kid;
+buffer[idx+4]=dispSize.x;
+buffer[idx+5]=dispSize.y;
+buffer[idx+6]=dispSize.z;
+}
+void _SetDispCount(RWStructuredBuffer<uint> buffer,uint cnt){
+buffer[0]=cnt;
+}
+void __set_draw_argument(RWStructuredBuffer<uint> buffer, uint4 draw_arg) {
+    buffer[0] = draw_arg.x;
+    buffer[1] = draw_arg.y;
+    buffer[2] = draw_arg.z;
+    buffer[3] = draw_arg.w;
+}
