@@ -1,0 +1,13 @@
+-- add_requires("assimp", {build = true, configs = {shared = true}})
+add_requires("assimp")
+-- add_requires("coost", {configs = {shared = false}})
+
+target("mesh")
+    set_kind("static")
+    add_files("*.cpp")
+    add_deps("lc-core")
+    add_deps("meshoptimizer")
+    add_packages("assimp")
+    add_headerfiles("*.h")
+    add_includedirs(".", {public = true})
+target_end()

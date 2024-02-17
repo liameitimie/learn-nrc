@@ -1,0 +1,17 @@
+target("test_encode")
+    add_files("test_encode.cpp")
+    add_deps("global", "layers")
+    add_deps("lc-runtime", "lc-core")
+target_end()
+
+target("test_ngp")
+    add_files("test_ngp.cpp")
+    add_deps("lc-dsl", "lc-runtime", "lc-core", "lc-backends-dummy")
+    set_rundir("$(projectdir)")
+target_end()
+
+target("test_atomic_float")
+    add_files("test_atomic_float.cpp")
+    add_deps("lc-dsl", "lc-runtime", "lc-core", "lc-backends-dummy")
+    set_rundir("$(projectdir)")
+target_end()

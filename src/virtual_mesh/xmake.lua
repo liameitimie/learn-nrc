@@ -1,0 +1,17 @@
+add_requires("assimp", {build = true, configs = {shared = true}})
+-- add_requires("meshoptimizer", {build = true, configs = {shared = true}})
+add_requires("metis", {configs = {shared = true}})
+
+includes("mesh_simplify")
+includes("mesh")
+
+target("virtual_mesh")
+    set_kind("static")
+    add_files("*.cpp")
+    add_deps("lc-core")
+    add_deps("mesh", "mesh_simplify")
+    add_deps("meshoptimizer")
+    add_packages("assimp", "metis")
+    add_headerfiles("*.h")
+    add_includedirs(".", {public = true})
+target_end()

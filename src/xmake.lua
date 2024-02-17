@@ -1,0 +1,11 @@
+includes("global")
+includes("networks")
+includes("util")
+includes("programs")
+includes("virtual_mesh")
+
+target("test8")
+    set_kind("binary")
+    add_files("main.cpp")
+    add_deps("global", "matmuls", "gpu_rands")
+    add_deps("lc-runtime", "lc-core")

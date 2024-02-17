@@ -1,0 +1,17 @@
+target("test_matmul")
+    add_files("test_matmul.cpp")
+    add_deps("global", "matmuls")
+    add_deps("lc-runtime", "lc-core")
+target_end()
+
+target("test_matmul1")
+    add_files("test_matmul1.cpp")
+    add_deps("lc-dsl", "lc-runtime", "lc-core", "lc-backends-dummy")
+    set_rundir("$(projectdir)")
+target_end()
+
+target("test_matmul2")
+    add_files("test_matmul2.cpp")
+    add_deps("lc-dsl", "lc-runtime", "lc-core", "lc-backends-dummy")
+    set_rundir("$(projectdir)")
+target_end()

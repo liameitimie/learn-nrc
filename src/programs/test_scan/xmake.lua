@@ -1,0 +1,5 @@
+target("test_scan")
+    add_files("*.cpp")
+    add_deps("global")
+    add_deps("lc-runtime", "lc-core", "lc-dsl")
+target_end()

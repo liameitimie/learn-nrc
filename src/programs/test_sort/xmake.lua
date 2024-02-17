@@ -1,0 +1,23 @@
+target("test_sort")
+    add_files("test_sort.cpp")
+    add_deps("global")
+    add_deps("lc-runtime", "lc-core", "lc-dsl")
+target_end()
+
+target("test_sort1")
+    add_files("test_sort1.cpp")
+    add_deps("lc-runtime", "lc-core", "lc-dsl", "lc-backends-dummy")
+    set_rundir("$(projectdir)")
+target_end()
+
+target("test_sort2")
+    add_files("test_sort2.cpp")
+    add_deps("lc-runtime", "lc-core", "lc-dsl", "lc-backends-dummy")
+    set_rundir("$(projectdir)")
+target_end()
+
+target("test_thread_sort")
+    add_files("test_thread_sort.cpp")
+    add_deps("global")
+    add_deps("lc-runtime", "lc-core", "lc-dsl")
+target_end()

@@ -1,0 +1,7 @@
+target("mesh_simplify")
+    set_kind("static")
+    add_files("*.cpp")
+    add_deps("lc-core", "mesh")
+    add_headerfiles("*.h")
+    add_includedirs(".", {public = true})
+target_end()
